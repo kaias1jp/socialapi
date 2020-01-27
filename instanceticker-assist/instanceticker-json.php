@@ -13,6 +13,6 @@ if (isset($_GET["mode"])) {
 } else {
     $mode="0";
 }
-$jsonresult = csvtojson("https://pla.jp/tsv/".$mode, "\t");
+$jsonresult = csvtojson("https://wee.jp/tsv/".$mode, "\t");
 header('content-type: application/json; charset=utf-8');
 print $jsonresult;
