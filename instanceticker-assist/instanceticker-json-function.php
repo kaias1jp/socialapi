@@ -21,7 +21,13 @@ function csvtojson($url, $delimiter)
 {
     $file=file_get_contents_cache($url);
     if (($handle = fopen($file, "r")) == true) {
-        $csvHeaders = fgetcsv($handle, 4000, $delimiter);
+	    $csvHeaders = fgetcsv($handle, 4000, $delimiter);
+	    $csvHeaders[2] = "ServerName";
+	    $csvHeaders[3] = "FontColor";
+	    $csvHeaders[6] = "ImgWidth";
+	    $csvHeaders[5] = "ImgPath";
+	    $csvHeaders[4] = "BGColor";
+	    $csvHeaders[1] = "ScreenName";
         $csvJson = array();
 
         while ($row = fgetcsv($handle, 4000, $delimiter)) {
