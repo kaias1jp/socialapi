@@ -9,7 +9,7 @@ function file_get_contents_cache($url)
 
     $timestamp = filemtime($cachePath);
     $nowtime = time();
-    if ($nowtime-$timestamp > 86400) {
+    if ($nowtime-$timestamp > 3600) {
         $contents = file_get_contents($url);
         file_put_contents($cachePath, $contents);
     }
