@@ -25,15 +25,15 @@ echo " .body:before{font-size:12px!important;height:16px!important;animation:fad
 echo "display:block!important;white-space:pre!important;text-overflow:ellipsis!important;}\n";
 echo "@keyframes fade{0%{opacity:1;}1%{opacity:0.1;}96%,to{opacity:1;}}\n";
 foreach ($obj as $key => $val) {
-    echo " a[class*='dp-avatar avatar'][href*='" . $val["ServerName"] . "']";
+    echo " a[class*='dp-avatar avatar'][href*='" . $val["domain"] . "']";
     echo "+.main>.body:before{color:" . $val["FontColor"] . "!important;";
     echo "padding-left:" . $val["ImgWidth"] . "px!important;";
-    if ($mode=='2') {
-        echo "background:url('https://www.google.com/s2/favicons?domain=" . $val["ServerName"] . "')";
-    } else {
-        echo "background:url('".$val["ImgPath"]."')";
-    }
+    
+        
+    
+        echo "background:url('".$val["favicon"]."')";
+    
     echo ",linear-gradient(to left,transparent," . $val["BGColor"] . " )!important; ";
     echo "background-repeat:no-repeat,no-repeat!important;";
-    echo "content:'" . $val["ScreenName"] . "'!important;}\n";
+    echo "content:'" . $val["name"] . "'!important;}\n";
 }
