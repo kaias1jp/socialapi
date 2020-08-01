@@ -18,6 +18,6 @@ if (isset($_GET["mode"])) {
 } else {
     $mode="0";
 }
-$jsonresult = csvtojson("https://miy.pw/tsv/".$mode, "\t");
+$jsonresult = csvtojson("https://socialapi.app/tsv/".$mode, "\t");
 header('content-type: application/json; charset=utf-8');
 print $jsonresult;
