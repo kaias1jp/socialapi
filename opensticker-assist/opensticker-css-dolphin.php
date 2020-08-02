@@ -32,8 +32,12 @@ foreach ($obj2 as $key => $val) {
         
     
         echo "background:url('".$val["favicon"]."')";
-    
-    echo ",linear-gradient(to left,transparent,#0000ff )!important; ";
+      if ($val["bgColor"]=="") {
+         $bgColor = "#0000ff";
+    } else {
+          $bgColor = $val["bgColor"][0];
+    }
+    echo ",linear-gradient(to left,transparent,".$bgColor." )!important; ";
     echo "background-repeat:no-repeat,no-repeat!important;";
     echo "background-size:auto 16px!important;";
     echo "content:'" . $val["name"] . "'!important;}\n";
