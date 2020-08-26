@@ -26,14 +26,31 @@ echo "display:block!important;white-space:pre!important;text-overflow:ellipsis!i
 echo "@keyframes fade{0%{opacity:1;}1%{opacity:0.1;}96%,to{opacity:1;}}\n";
 foreach ($obj2 as $key => $val) {
     echo " a[class*='dp-avatar avatar'][href*='" . $val["domain"] . "']";
-    echo "+.main>.body:before{color:#ffffff!important;";
+    if ($val["fontColor"]=="") {
+	    if ($val["type"]=="mastodon") {
+		    $fontColor = "#fff";
+	    } else if ($val["type"]=="misskey" || $val["type"]=="misskeylegacy") {
+		    $fontColor = "#3c9";
+	    } else if ($val["type"]=="pleroma") {
+		    $fontColor = "#da5";
+	    }
+    } else {
+	    $fontColor = $val["fontColor"];
+    }
+    echo "+.main>.body:before{color:".$fontColor."!important;";
     echo "padding-left:16px!important;";
     
         
     
         echo "background:url('".$val["favicon"]."')";
-      if ($val["bgColor"]=="") {
-         $bgColor = "#0000ff";
+  if ($val["bgColor"]=="") {
+	  if ($val["type"]=="mastodon") {
+		  $bgColor = "#26a";
+	  } else if ($val["type"]=="misskey" || $val["type"]=="misskeylegacy") {
+		  $bgColor = "#444";
+	  } else if ($val["type"]=="pleroma") {
+		  $bgColor = "#123";
+	  }
     } else {
           $bgColor = $val["bgColor"][0];
     }

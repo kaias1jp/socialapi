@@ -26,16 +26,18 @@ echo "display:block!important;white-space:pre!important;text-overflow:ellipsis!i
 echo "@keyframes fade{0%{opacity:1;}1%{opacity:0.1;}96%,to{opacity:1;}}\n";
 foreach ($obj2 as $key => $val) {
 	echo " a[class*='eiwwqkts avatar'][href*='" . $val["domain"] . "']";
-	if ($val["color"]=="") {
+	if ($val["fontColor"]=="") {
 		if ($val["type"]=="mastodon") {
-			$color = "#fff";
+			$fontColor = "#fff";
 		} else if ($val["type"]=="misskey" || $val["type"]=="misskeylegacy") {
-			$color = "#3c9";
+			$fontColor = "#3c9";
 		} else if ($val["type"]=="pleroma") {
-			$color = "#da5";
+			$fontColor = "#da5";
 		}
+	} else {
+		$fontColor = $val["fontColor"];
 	}
-    echo "+.main>.body:before{color:".$color."!important;";
+    echo "+.main>.body:before{color:".$fontColor."!important;";
     echo "padding-left:16px!important;";
     
         
