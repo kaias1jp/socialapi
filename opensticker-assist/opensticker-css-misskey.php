@@ -13,7 +13,16 @@ if (isset($_GET['mode'])) {
 } else {
     $mode="0";
 }
-
+if (isset($_GET['id'])) {
+	$myid = $_GET['id'];
+} else {
+	$myid = '';
+}
+if (isset($_GET['domain'])) {
+	$mydomain = $_GET['domain'];
+} else {
+	$mydomain = '';
+}
 $jsonUrl = "https://socialapi.app/api/opensticker/json";
 $json = file_get_contents($jsonUrl);
 $obj = json_decode($json, true);
@@ -25,7 +34,12 @@ echo " .body:before{font-size:12px!important;height:16px!important;animation:fad
 echo "display:block!important;white-space:pre!important;text-overflow:ellipsis!important;}\n";
 echo "@keyframes fade{0%{opacity:1;}1%{opacity:0.1;}96%,to{opacity:1;}}\n";
 foreach ($obj2 as $key => $val) {
-	echo " a[class*='eiwwqkts avatar'][href*='" . $val["domain"] . "']";
+	if ($val['domain']==$mydomain) {
+		$href = "href='/@".$myid;
+	} else {
+		$href = "href*='".$val["domain"];
+	}
+	echo " a[class*='eiwwqkts avatar'][".$href . "']";
 	if ($val["fontColor"]=="") {
 		if ($val["type"]=="mastodon") {
 			$fontColor = "#fff";
