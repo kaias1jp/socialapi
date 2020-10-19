@@ -22,11 +22,11 @@ echo "display:block!important;white-space:pre!important;text-overflow:ellipsis!i
 echo "@keyframes fade{0%{opacity:1;}1%{opacity:0.1;}96%,to{opacity:1;}}\n";
 foreach ($obj2 as $key => $val) {
 	if ($val['domain']==$mydomain) {
-		$href = "href='/@".$myid;
+		$a_title = ":not([title*='@'])";
 	} else {
-		$href = "href*='".$val["domain"];
+		$a_title = "[title*='@".$val["domain"]."']";
 	}
-	echo " a[class*='eiwwqkts avatar'][".$href . "']";
+	echo " a[class*='eiwwqkts avatar']".$a_title ;
 	if ($val["fontColor"]=="") {
 		if ($val["type"]=="mastodon") {
 			$fontColor = "#fff";
