@@ -1,18 +1,5 @@
 <?php header('Content-Type: text/css; charset=utf-8');?>
 <?php
-if (isset($_GET['mode'])) {
-    $mode = $_GET['mode'];
-    switch ($mode) {
-        case "0":
-        case "1":
-        case "2":
-            break;
-        default:
-            $mode="0";
-    }
-} else {
-    $mode="0";
-}
 if (isset($_GET['id'])) {
 	$myid = $_GET['id'];
 } else {
