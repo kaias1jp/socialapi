@@ -23,23 +23,21 @@ foreach ($obj2 as $key => $val) {
 	} else {
 		$a_title = "[title*='@".$val["domain"]."']";
 	}
-	echo " a[class*='eiwwqkts avatar']".$a_title ;
 	if ($val["fontColor"]=="") {
 		$fontColor = $default[$type]["fontColor"];
 	} else {
 		$fontColor = $val["fontColor"];
 	}
-	echo "+.main>.body:before{color:".$fontColor."!important;";
-	echo "padding-left:16px!important;";
-    
-        
-    
-        echo "background:url('".$val["favicon"]."')";
 	if ($val["bgColor"]=="") {
 		$bgColor = $default[$type]["bgColor"][0];
 	} else {
 		$bgColor = $val["bgColor"][0];
 	}
+
+	echo " a[class*='eiwwqkts avatar']".$a_title ;
+	echo "+.main>.body:before{color:".$fontColor."!important;";
+        echo "padding-left:16px!important;";
+        echo "background:url('".$val["favicon"]."')";
 	echo ",linear-gradient(to left,transparent,".$bgColor." )!important; ";
 	echo "background-repeat:no-repeat,no-repeat!important;";
 	echo "background-size:auto 16px!important;";
