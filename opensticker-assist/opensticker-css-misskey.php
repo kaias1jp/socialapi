@@ -1,10 +1,5 @@
 <?php header('Content-Type: text/css; charset=utf-8');?>
 <?php
-if (isset($_GET['id'])) {
-	$myid = $_GET['id'];
-} else {
-	$myid = '';
-}
 if (isset($_GET['domain'])) {
 	$mydomain = $_GET['domain'];
 } else {
