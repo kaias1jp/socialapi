@@ -8,7 +8,7 @@ if (isset($_GET['domain'])) {
 $jsonUrl = "https://socialapi.app/api/opensticker/json";
 $json = file_get_contents($jsonUrl);
 $obj = json_decode($json, true);
-$obj2 = $obj["data"];
+$data = $obj["data"];
 $default = $obj["default"];
 
 
@@ -16,7 +16,7 @@ echo "@charset 'utf-8';\n";
 echo " .body:before{font-size:12px!important;height:16px!important;animation:fade 1s;";
 echo "display:block!important;white-space:pre!important;text-overflow:ellipsis!important;}\n";
 echo "@keyframes fade{0%{opacity:1;}1%{opacity:0.1;}96%,to{opacity:1;}}\n";
-foreach ($obj2 as $key => $val) {
+foreach ($data as $key => $val) {
 	$type = $val["type"];
 	if ($val['domain']==$mydomain) {
 		$a_title = ":not([title*='@'])";
