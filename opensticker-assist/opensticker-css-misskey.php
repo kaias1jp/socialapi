@@ -42,8 +42,8 @@ foreach ($data as $key => $val) {
 
 	echo " a[class*='eiwwqkts avatar']" . $a_title ;
 	echo "+.main>.body:before{color:" . $fontColor . "!important;";
-    echo "padding-left:16px!important;";
-    echo "background:url('" . $favicon . "')";
+	echo "padding-left:16px!important;";
+	echo "background:url('" . $favicon . "')";
 	echo ",linear-gradient(to left,transparent," . $bgColor . " )!important; ";
 	echo "background-repeat:no-repeat,no-repeat!important;";
 	echo "background-size:auto 16px!important;";
