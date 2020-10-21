@@ -5,11 +5,10 @@ if (isset($_GET['domain'])) {
 } else {
 	$mydomain = '';
 }
-$jsonUrl = "https://socialapi.app/api/opensticker/json";
-$json = file_get_contents($jsonUrl);
-$obj = json_decode($json, true);
-$data = $obj["data"];
-$default = $obj["default"];
+
+$json_obj = json_decode(file_get_contents("https://socialapi.app/api/opensticker/json"), true);
+$data = $json_obj["data"];
+$default = $json_obj["default"];
 
 
 echo "@charset 'utf-8';\n";
